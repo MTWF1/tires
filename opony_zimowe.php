@@ -16,7 +16,7 @@
         }
         .buttons {
             margin-top: 20px;
-            margin-bottom: 20px; /* Dodany margines na dole */
+            margin-bottom: 20px;
         }
         .buttons a {
             display: inline-block;

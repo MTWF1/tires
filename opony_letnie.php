@@ -43,9 +43,9 @@
 <?php
 // Dane do połączenia z bazą danych
 $host = 'localhost';
-$username = 'root'; // Twoja nazwa użytkownika
-$password = ''; // Twoje hasło
-$database = 'tires'; // Nazwa twojej bazy danych
+$username = 'root'; 
+$password = ''; 
+$database = 'tires'; 
 
 $conn = new mysqli($host, $username, $password, $database);
 
