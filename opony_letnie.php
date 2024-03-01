@@ -16,7 +16,7 @@
         }
         .buttons {
             margin-top: 20px;
-            margin-bottom: 20px; /* Dodany margines na dole */
+            margin-bottom: 40px; 
         }
         .buttons a {
             display: inline-block;
@@ -35,6 +35,11 @@
 
 <h2>Opony letnie</h2>
 
+<div class="buttons">
+    <a href="dodaj_opone.php">Dodaj oponę</a>
+    <a href="index.php">Wróć</a>
+    </div>
+
 <?php
 // Dane do połączenia z bazą danych
 $host = 'localhost';
@@ -48,23 +53,24 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM tires";
+$sql = "SELECT * FROM summertires";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<table>";
-    echo "<tr><th>#</th><th>Numer rejestracyjny</th><th>Nazwa samochodu</th><th>Typ samochodu</th><th>Założone opony</th></tr>";
-    $counter = 1;
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $counter++ . "</td><td>" . $row["registration_number"]. "</td><td>" . $row["car_name"]. "</td><td>" . $row["car_type"]. "</td><td>" . $row["SETID"]. "</td></tr>";
-    }
-    echo "</table>";
+if ($result === false) {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 } else {
-    echo "Brak danych w tabeli samochodów";
+    if ($result->num_rows > 0) {
+        echo "<table>";
+        echo "<tr><th>#</th><th>Nazwa</th><th>Profil</th><th>Szerokość</th><th>Średnica</th><th>Typ</th><th>Bieżnik</th></tr>";
+        $counter = 1;
+        while($row = $result->fetch_assoc()) {
+            echo "<tr><td>" . $counter++ . "</td><td>"  . $row["Name"]. "</td><td>" . $row["profile"]. "</td><td>" . $row["width"]. "</td><td>" . $row["size"]. "</td><td>" . $row["type"]. "</td><td>" . $row["tread"]. "</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "Brak danych o oponach letnich";
+    }
 }
-
-
-
 
 $conn->close();
 ?>
