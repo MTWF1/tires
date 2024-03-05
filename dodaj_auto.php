@@ -16,14 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Dane nowej pozycji
-    $WName = $_POST['WName']; 
-    $profile = $_POST['WProfile'];
-    $width = $_POST['WWidth'];
-    $size = $_POST['WSize'];
-    $tread = $_POST['WTread'];
+    $Name = $_POST['car_name']; // Przyjmuję, że dane są przesyłane metodą POST
+    $registration = $_POST['registration_number'];
+    $type = $_POST['car_type'];
+    
 
     // Zapytanie SQL do wstawienia nowej pozycji
-    $sql = "INSERT INTO wintertires (WName, Wprofile, Wwidth, Wsize, Wtread) VALUES ('$WName', '$profile', '$width', '$size', '$tread')";
+    $sql = "INSERT INTO cars (car_name, registration_number, car_type) VALUES ('$Name', '$registration', '$type')";
 
     // Wykonanie zapytania
     if ($connection->query($sql) === TRUE) {
@@ -37,23 +36,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dodaj oponę zomową</title>
+    <title>Dodaj auto</title>
 </head>
 <body>
-    <h2>Dodaj oponę zimową</h2>
-    <form method="post" action="dodaj_opone_zimowa.php">
-        Nazwa: <input type="text" name="WName"><br><br>
-        Profil: <input type="number" name="WProfile"><br><br>
-        Szerokość: <input type="number" name="WWidth"><br><br>
-        Średnica: <input type="number" name="WSize"><br><br>
-        Bieżnik: <input type="number" name="WTread"><br><br>
-        <input type="submit" value="Dodaj pozycję">
+    <h2>Dodaj auto</h2>
+    <form method="post" action="dodaj_auto.php">
+        Nazwa: <input type="text" name="car_name"><br><br>
+        Numer rejestracyjny: <input type="text" name="registration_number"><br><br>
+        Typ: <input type="text" name="car_type"><br><br>
+        <input type="submit" value="Dodaj auto">
     </form>
     <div class="buttons">
         <a href="index.php">Wróć</a>
     </div>
 </body>
 </html>
+

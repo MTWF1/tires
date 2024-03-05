@@ -14,6 +14,7 @@
     <a href="komplety_opon.php">Komplety opon</a>
     <a href="opony_zdekompletowane.php">Opony zdekompletowane</a>
     <a href="opony_usuniete.php">Opony usunięte</a>
+    <a href="dodaj_auto.php">Dodaj auto</a>
 </div>
 
 
