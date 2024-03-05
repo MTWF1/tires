@@ -91,7 +91,7 @@ input[type="submit"]:hover {
 <h2>Opony letnie</h2>
 
 <div class="buttons">
-    <a href="dodaj_opone.php">Dodaj oponę</a>
+    <a href="dodaj_opone_letnia.php">Dodaj oponę</a>
     <a href="index.php">Wróć</a>
     </div>
 
@@ -116,10 +116,10 @@ if ($result === false) {
 } else {
     if ($result->num_rows > 0) {
         echo "<table>";
-        echo "<tr><th>#</th><th>Nazwa</th><th>Profil</th><th>Szerokość</th><th>Średnica</th><th>Typ</th><th>Bieżnik</th></tr>";
+        echo "<tr><th>#</th><th>Nazwa</th><th>Profil</th><th>Szerokość</th><th>Średnica</th><th>Bieżnik</th></tr>";
         $counter = 1;
         while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $counter++ . "</td><td>"  . $row["Name"]. "</td><td>" . $row["profile"]. "</td><td>" . $row["width"]. "</td><td>" . $row["size"]. "</td><td>" . $row["type"]. "</td><td>" . $row["tread"]. "</td></tr>";
+            echo "<tr><td>" . $counter++ . "</td><td>"  . $row["Name"]. "</td><td>" . $row["profile"]. "</td><td>" . $row["width"]. "</td><td>" . $row["size"]. "</td><td>" . $row["tread"]. "</td></tr>";
         }
         echo "</table>";
     } else {
